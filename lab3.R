@@ -34,7 +34,6 @@ colnames(errores_serv_resumen) <- c('codigo', 'Conteo')
 
 #pregunta 1.3
 pregunta_1_3 <- dplyr::select(epa_http, url, tipo, timestamp)
-pregunta_1_3_solo_img <- dplyr::select(endsWith(pregunta_1_3$url,'.png'))
 pregunta_1_3_solo_img <- pregunta_1_3 %>% filter(url %like% "(.png|.jpg|.gif|.JPG|.PNG|.GIF)")
 
 
