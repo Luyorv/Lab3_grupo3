@@ -36,4 +36,7 @@ colnames(errores_serv_resumen) <- c('codigo', 'Conteo')
 pregunta_1_3 <- dplyr::select(epa_http, url, tipo, timestamp)
 pregunta_1_3_solo_img <- pregunta_1_3 %>% filter(url %like% "(.png|.jpg|.gif|.JPG|.PNG|.GIF)")
 
+pregunta_1_3_solo_img_frec <- pregunta_1_3_solo_img %>% group_by(tipo) %>% mutate(tipo) %>% summarise(n = n())
+colnames(pregunta_1_3_solo_img_frec) <- c('tipo', 'conteo')
+
 
