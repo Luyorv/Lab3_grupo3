@@ -8,6 +8,7 @@ library(data.table)
 library(tidyr)
 library(dplyr)
 library(lubridate)
+library(ggplot2)
 
 #Carga de CSV 
 epa_http <- read.table(file = "../../proyecto/Lab3_grupo3/epa-http.csv", sep = " ", quote = '"', fill = TRUE)
@@ -35,8 +36,24 @@ colnames(errores_serv_resumen) <- c('codigo', 'Conteo')
 #pregunta 1.3
 pregunta_1_3 <- dplyr::select(epa_http, url, tipo, timestamp)
 pregunta_1_3_solo_img <- pregunta_1_3 %>% filter(url %like% "(.png|.jpg|.gif|.JPG|.PNG|.GIF)")
-
 pregunta_1_3_solo_img_frec <- pregunta_1_3_solo_img %>% group_by(tipo) %>% mutate(tipo) %>% summarise(n = n())
 colnames(pregunta_1_3_solo_img_frec) <- c('tipo', 'conteo')
+
+#Pregunta 1.4
+
+ggplot(errores_serv_resumen, aes(x=codigo, y=n, fill=codigo)) +
+  geom_bar(stat="identity")+theme_minimal()+
+  geom_text(aes(label=n), vjust=-0.3, size=3.5)
+
+ggplot(pregunta_1_3_solo_img_frec, aes(x = "", y = conteo, fill = tipo)) +
+  geom_col() +
+  geom_text(aes(label = conteo),
+            position = position_stack(vjust = 0.5)) +
+  coord_polar(theta = "y")
+
+#Pregunta 1.5
+
+hist(x=epa_http$timestamp, breaks = "hours", freq = TRUE, xlab = "Cantidad de peticiones por día", main = "Cantidad de peticiones a los largo de tiempo")
+
 
 
