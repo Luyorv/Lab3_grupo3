@@ -1,0 +1,113 @@
+---
+title: "Lab3_MD"
+output: html_document
+date: "2023-11-22"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# LABORATORIO 3
+
+[**Grupo 3**]{.underline}
+
+*- Regina Luyo Manrique*
+
+*- Carlos Pastor Marfurd*
+
+*- Nelson Romero Yepez*
+
+## ANALISIS DEL SERVIDOR USANDO R (PARTE II)
+
+### **Pregunta 1. Descomprimir el fichero comprimido que contiene los registros del servidor, y a partir de los datos extraídos, cargar en data frame los registros con las peticiones servidas.**
+
+```{r pregunta_1.1, include=FALSE, echo=FALSE}
+summary(cars)
+```
+
+### Pregunta 2. Identificar el número único de usuarios que han interactuado directamente con el servidor de forma segregada según si los usuarios han tenido algún tipo de error en las distintas peticiones ofrecidas por el servidor
+
+*Los códigos de estado que empiezan por 300 están relacionados con redirecciones. Los servidores usan estos códigos para indicar al navegador que la página o recurso que han pedido se ha movido de sitio. Como usuario, no verás estos códigos, aunque gracias a ellos una página te podría redirigir automáticamente a otra.*
+
+-   **300 Multiple Choices**: indica al navegador que existen varias alternativas para el contenido que ha pedido. Por ejemplo, un vídeo puede estar disponible en distintos formatos o calidades.
+-   **301 Moved Permanently:** la página que estás buscando no está aquí y se ha movido permanentemente a una nueva ubicación.
+-   **302 Found:** indica que la página o recurso está disponible en otra ubicación.
+-   **303 See Other:** igual al anterior.
+-   **304 Not Modified:** indica al navegador que la página no se ha modificado desde la última vez que se pidió. Así se puede evitar descargarla de nuevo, ahorrando ancho de banda.
+-   **305 Use Proxy**: este recurso solo está disponible desde un proxy.
+-   **306 Switch Proxy:** Este código ya no se usa. 307 Temporary Redirect: indica al navegador que este recurso o página se ha movido de sitio, pero todavía está disponible en esta dirección.
+-   **308 Permanent Redirect:** similar al código 301, la página ha cambiado de lugar permanentemente
+
+*Los estados 400 se corresponden a errores del cliente y con frecuencia sí los verás. Es el caso del [archiconocido error 404](https://www.genbeta.com/web/error-404-not-found-historia-y-hazanas-de-este-mitico-codigo), que aparece cuando la página que has intentado buscar no existe. Es, por tanto, un error del cliente (la dirección web estaba mal).*
+
+-   **400 Bad Request**: algo ha ido mal con la petición. Si recibes este error, prueba a refrescar la página o actualizar tu navegador
+-   **401 Unauthorized**: no tienes permiso para recibir ese contenido.
+-   **402 Payment Required**: en desuso por ahora.
+-   **403 Forbidden**: la petición es correcta pero el servidor se niega a ofrecerte el recurso o página web. Es posible que necesites una cuenta en el servicio e iniciar sesión antes de poder acceder.
+-   **404 Not Found:** El código de estado más famoso de todos indica que el recurso no está disponible en el servidor. Quizá lo estuvo en el pasado y ha sido borrado o quizá has escrito la dirección web mal
+-   **405 Method Not Allowed**: no se permite el uso de ese método.
+-   **406 Not Acceptable**: la petición solo puede generar un tipo de contenido distinto al que se especificó como aceptable.
+-   **407 Proxy Authentication Required**: se requiere al cliente que se identifique mediante un proxy.
+-   **408 Request Timeout**: el servidor ha pasado demasiado tiempo esperando una respuesta por parte del cliente.
+-   **409 Conflict**: la petición no se pudo completar porque hubo un problema con ella.
+-   **410 Gone**: esa página no existe, se borró. Este código es usado por buscadores como Google, que usan la información para eliminar contenido de su base de datos.
+-   **411 Length Required**: el cliente debía indicar la longitud del contenido, pero no lo hizo.
+-   **412 Precondition Failed**: el servidor no cumple las condiciones previas que se indicaban en la petición.
+-   **413 Payload Too Large**: la petición es demasiado larga y el servidor se niega a procesarla.
+-   **414 URI Too Long**: la dirección web es demasiado larga. Si recibes este error, difícilmente podrás solucionarlo pues no es problema tuyo, sino de la página que generó dicho enlace.
+-   **415 Unsupported Media Type**: el tipo de archivo que se ha recibido es distinto al que se esperaba.
+-   **416 Range Not Satisfiable**: el cliente ha pedido una porción de un recurso que es incorrecta.
+-   **417 Expectation Failed**: el servidor no puede cumplir con las expectaciones de la cabecera.
+-   **418 I'm a teapot**: es un código de estado que nació como una broma de April's Fools. Puedes recibir uno visitando [esta web](http://google.com/teapot).
+-   **421 Misdirected Request**: el servidor es incapaz de producir una respuesta.
+-   **422 Unprocessable Entity**: la petición era correcta pero tenía algún error semántico.
+-   **423 Locked**: este recurso está bloqueado.
+-   **424 Failed Dependency**: este recurso depende de otra respuesta, que falló.
+-   **426 Upgrade Required**: el cliente debe usar un protocolo distinto.
+-   **428 Precondition Required**: el servidor requiere que la petición sea condicional.
+-   **429 Too Many Requests**: se han enviado demasiadas peticiones en un corto período de tiempo.
+-   **431 Request Header Fields Too Large**: la cabecera o algunos de los campos de la cabecera son demeasiado grandes.
+-   **452 Unavailable for Legal reasons**: el servidor deniega el accceso a este recurso por motivos legales.
+
+```{r pregunta_2, include=FALSE, echo=FALSE}
+summary(cars)
+```
+
+### Pregunta 3. Analizar los distintos tipos de peticiones HTTP (GET, POST, PUT, DELETE) gestionadas por el servidor, identificando la frecuencia de cada una de estas. Repetir el análisis, esta vez filtrando previamente aquellas peticiones correspondientes a recursos ofrecidos de tipo imagen.
+
+```{r pregunta_3, include=FALSE, echo=FALSE}
+summary(cars)
+```
+
+### Pregunta 4. Generar al menos 2 gráficos distintos que permitan visualizar alguna característica relevante de los datos analizados. Estos deberán representar por lo menos 1 o 2 variables diferentes del data frame. Describid el gráfico e indicad cualquier observación destacable que se pueda apreciar gracias a la representación gráfica.
+
+```{r pregunta_4, include=FALSE, echo=FALSE}
+summary(cars)
+```
+
+### Pregunta 5. Generar un gráfico que permita visualizar el número de peticiones servidas a lo largo del tiempo.
+
+```{r pregunta_5, include=FALSE, echo=FALSE}
+summary(cars)
+```
+
+### Pregunta 6. Utilizando un algoritmo de aprendizaje no supervisado, realizad un análisis de clústering con k-means para los datos del servidor.
+
+```{r pregunta_6, include=FALSE, echo=FALSE}
+summary(cars)
+```
+
+### Pregunta 7. Representad visualmente en gráficos de tipo scatter plot el resultado de vuestros clústering y interpretad el resultado obtenido (describid las características de los distintos grupos) con los 2 valores distintos de k probados en el apartado anterior en función de los valores de las variables y el número de clúster asignado
+
+```{r pregunta_7, include=FALSE, echo=FALSE}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
